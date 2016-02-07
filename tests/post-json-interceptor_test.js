@@ -17,7 +17,6 @@ const chai = require('chai'),
 
   connectorMixin = require('kronos-interceptor').ConnectorMixin;
 
-
 const stepMock = {
   "name": "dummy step name",
   "type": "dummy step type"
