@@ -1,8 +1,12 @@
 /* jslint node: true, esnext: true */
 "use strict";
 
-const PostJsonInterceptor = require('./lib/post-json-interceptor').Interceptor;
+const TransportInterceptor = require('./lib/transport-multipart-interceptor');
 
-exports.PostJsonInterceptor = PostJsonInterceptor;
+exports.SendMultipartInterceptor = TransportInterceptor.SendMultipartInterceptor;
+exports.ReceiveMultipartInterceptor = TransportInterceptor.ReceiveMultipartInterceptor;
 
-exports.registerWithManager = manager => manager.registerInterceptor(PostJsonInterceptor);
+exports.registerWithManager = manager => {
+	manager.registerInterceptor(TransportInterceptor.SendMultipartInterceptor);
+	manager.registerInterceptor(TransportInterceptor.ReceiveMultipartInterceptor);
+};
