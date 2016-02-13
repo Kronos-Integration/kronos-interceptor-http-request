@@ -42,10 +42,12 @@ describe('interceptors', () => {
     if (!withConfig) return;
 
     itc.connected = dummyEndpoint('ep');
-
-    // request value is the timeout
     itc.connected.receive = testResponseHandler;
 
-    it('passing request', done => itc.receive({}).then(fullfilled => done()).catch(done));
+    let ctx = {};
+
+    it('passing request', () => itc.receive(ctx).then(() => {
+      assert.equal(ctx.body.data.a, 1);
+    }));
   });
 });
