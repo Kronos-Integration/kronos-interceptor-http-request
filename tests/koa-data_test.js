@@ -21,8 +21,12 @@ const logger = {
 
 /* simple owner with name */
 function dummyEndpoint(name) {
-  return {get name() {
+  return {
+    get name() {
       return name;
+    },
+    get path() {
+      return '/get:id';
     },
     toString() {
       return this.name;
@@ -36,7 +40,7 @@ describe('interceptors', () => {
 
   mochaInterceptorTest(KoaDataRequestInterceptor, ep, {
     "data": {
-      "a": 1
+      "a": "XXX${id}YYY"
     }
   }, "koa-data-request", (itc, withConfig) => {
     if (!withConfig) return;
@@ -44,10 +48,16 @@ describe('interceptors', () => {
     itc.connected = dummyEndpoint('ep');
     itc.connected.receive = testResponseHandler;
 
-    let ctx = {};
+    let ctx = {
+      request: {
+        path: '/get/1234'
+      }
+    };
 
-    it('passing request', () => itc.receive(ctx).then(() => {
-      assert.equal(ctx.body.data.a, 1);
+    it('passing request', () => itc.receive(ctx, {
+      id: 1234
+    }).then(() => {
+      assert.equal(ctx.body.data.a, 'XXX1234YYY');
     }));
   });
 });
