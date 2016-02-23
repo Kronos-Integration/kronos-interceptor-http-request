@@ -9,5 +9,6 @@ exports.ReceiveMultipartInterceptor = TransportInterceptor.ReceiveMultipartInter
 exports.registerWithManager = manager => Promise.all([
 	manager.registerInterceptor(TransportInterceptor.SendMultipartInterceptor),
 	manager.registerInterceptor(TransportInterceptor.ReceiveMultipartInterceptor),
-	manager.registerInterceptor(require('./lib/koa-data-request'))
+	manager.registerInterceptor(require('./lib/koa-data-request')),
+	manager.registerInterceptor(require('./lib/koa-request'))
 ]);
