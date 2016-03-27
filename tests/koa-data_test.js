@@ -45,6 +45,17 @@ describe('interceptors', () => {
   }, "koa-data-request", (itc, withConfig) => {
     if (!withConfig) return;
 
+    describe('json', () => {
+      it('toJSON', () => {
+        assert.deepEqual(itc.toJSON(), {
+          type: "koa-data-request",
+          data: {
+            a: "XXX${id}YYY"
+          }
+        });
+      });
+    });
+
     itc.connected = dummyEndpoint('ep');
     itc.connected.receive = testResponseHandler;
 

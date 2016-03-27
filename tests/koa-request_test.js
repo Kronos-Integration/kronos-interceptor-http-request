@@ -41,6 +41,14 @@ describe('interceptors', () => {
   mochaInterceptorTest(KoaRequestInterceptor, ep, {}, "koa-request", (itc, withConfig) => {
     if (!withConfig) return;
 
+    describe('json', () => {
+      it('toJSON', () => {
+        assert.deepEqual(itc.toJSON(), {
+          type: "koa-request"
+        });
+      });
+    });
+
     itc.connected = dummyEndpoint('ep');
     itc.connected.receive = testResponseHandler;
 
