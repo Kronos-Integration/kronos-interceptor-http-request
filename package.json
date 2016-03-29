@@ -29,7 +29,7 @@
     "cz-conventional-changelog": "1.1.5",
     "istanbul": "0.4.2",
     "jsdoc": "3.4.0",
-    "kronos-service-manager": "3.2.13",
+    "kronos-service-manager": "3.2.14",
     "kronos-test-interceptor": "^2.0.3",
     "mocha": "2.4.5",
     "mock-http": "0.0.9",
