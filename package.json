@@ -48,7 +48,7 @@
   "dependencies": {
     "busboy": "^0.2.12",
     "expression-expander": "^3.0.0",
-    "kronos-interceptor": "^2.1.0"
+    "kronos-interceptor": "^2.2.0"
   },
   "config": {
     "commitizen": {
