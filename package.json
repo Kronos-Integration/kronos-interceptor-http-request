@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-http-request#readme",
   "engines": {
-    "node": ">=6"
+    "node": ">=6.1"
   },
   "devDependencies": {
     "chai": "3.5.0",
