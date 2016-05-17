@@ -1,7 +1,7 @@
 /* global describe, it, xit, before */
 /* jslint node: true, esnext: true */
 
-"use strict";
+'use strict';
 
 const chai = require('chai'),
   assert = chai.assert,
@@ -15,8 +15,8 @@ const chai = require('chai'),
 
 
 const stepMock = {
-  "name": "dummy step name",
-  "type": "dummy step type"
+  name: 'dummy step name',
+  type: 'dummy step type'
 };
 llm.defineLogLevelProperties(stepMock, llm.defaultLogLevels, llm.defaultLogLevels);
 
@@ -49,16 +49,16 @@ describe('Transport Multipart Interceptor test', function () {
   it('Send message', function (done) {
 
     const endpoint1 = {
-      "owner": stepMock,
-      "name": "gumbo 1"
+      owner: stepMock,
+      name: 'gumbo 1'
     };
     const endpoint2 = {
-      "owner": stepMock,
-      "name": "gumbo 2"
+      owner: stepMock,
+      name: 'gumbo 2'
     };
 
     const sendInterceptor = manager.createInterceptorInstanceFromConfig({
-      "type": "transport-send-multipart"
+      type: 'transport-send-multipart'
     }, endpoint1);
 
 
@@ -66,7 +66,7 @@ describe('Transport Multipart Interceptor test', function () {
       receive(message) {
         //console.log(message);
         done();
-        return Promise.resolve("OK");
+        return Promise.resolve('OK');
       }
     };
 
@@ -74,23 +74,21 @@ describe('Transport Multipart Interceptor test', function () {
     sendInterceptor.connected = mockEchoReceive;
 
     const sendMessage = {
-      "info": {
-        "request": {
-          "header": {
-            "content-type": "application/json"
+      info: {
+        request: {
+          header: {
+            'content-type': 'application/json'
           }
         }
       },
-      "payload": {
-        "req": "master request",
-        "name": "lola"
+      payload: {
+        req: 'master request',
+        name: 'lola'
       }
     };
 
     sendInterceptor.receive(sendMessage);
 
   });
-
-
 
 });

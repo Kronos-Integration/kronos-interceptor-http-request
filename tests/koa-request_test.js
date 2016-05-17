@@ -1,7 +1,7 @@
 /* global describe, it, xit */
 /* jslint node: true, esnext: true */
 
-"use strict";
+'use strict';
 
 const chai = require('chai'),
   assert = chai.assert,
@@ -31,20 +31,20 @@ function dummyEndpoint(name) {
     toString() {
       return this.name;
     },
-    "step": logger
+    step: logger
   };
 }
 
 describe('interceptors', () => {
   const ep = dummyEndpoint('ep');
 
-  mochaInterceptorTest(KoaRequestInterceptor, ep, {}, "koa-request", (itc, withConfig) => {
+  mochaInterceptorTest(KoaRequestInterceptor, ep, {}, 'koa-request', (itc, withConfig) => {
     if (!withConfig) return;
 
     describe('json', () => {
       it('toJSON', () => {
         assert.deepEqual(itc.toJSON(), {
-          type: "koa-request"
+          type: 'koa-request'
         });
       });
     });
@@ -53,7 +53,7 @@ describe('interceptors', () => {
     itc.connected.receive = testResponseHandler;
 
     let ctx = {
-      req: "request"
+      req: 'request'
     };
 
     it('passing request', () => itc.receive(ctx).then(() => {
