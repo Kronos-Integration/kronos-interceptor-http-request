@@ -68,7 +68,7 @@ describe('interceptors', () => {
     it('passing request', () => itc.receive(ctx, {
       id: 1234
     }).then(() => {
-      assert.equal(ctx.body.data.a, 'XXX1234YYY');
+      assert.equal(ctx.body.a, 'XXX1234YYY');
     }));
   });
 });
