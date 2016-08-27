@@ -30,7 +30,7 @@
     "istanbul": "0.4.5",
     "jsdoc": "3.4.0",
     "kronos-service-manager": "^3.4.14",
-    "kronos-test-interceptor": "^2.0.4",
+    "kronos-test-interceptor": "^2.0.5",
     "mocha": "3.0.2",
     "semantic-release": "6.3.0"
   },
