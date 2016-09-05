@@ -29,7 +29,7 @@
     "cz-conventional-changelog": "1.2.0",
     "istanbul": "0.4.5",
     "jsdoc": "3.4.0",
-    "kronos-service-manager": "^3.4.15",
+    "kronos-service-manager": "^3.4.16",
     "kronos-test-interceptor": "^2.0.5",
     "mocha": "3.0.2",
     "semantic-release": "6.3.0"
@@ -46,7 +46,7 @@
     "busboy": "^0.2.13",
     "expression-expander": "^5.0.0",
     "kronos-interceptor": "^2.3.0",
-    "model-attributes": "^1.7.0"
+    "model-attributes": "^1.7.1"
   },
   "config": {
     "commitizen": {
