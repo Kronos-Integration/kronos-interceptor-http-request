@@ -29,24 +29,27 @@
     "cz-conventional-changelog": "1.2.0",
     "istanbul": "0.4.5",
     "jsdoc": "3.4.1",
-    "kronos-service-manager": "^3.4.16",
+    "kronos-service-manager": "^3.4.17",
     "kronos-test-interceptor": "^2.0.5",
     "mocha": "3.0.2",
     "semantic-release": "6.3.0"
   },
-  "contributors": [{
-    "name": "Torsten Link",
-    "email": "torstenlink@gmx.de"
-  }, {
-    "name": "Markus Felten",
-    "email": "markus.felten@gmx.de"
-  }],
+  "contributors": [
+    {
+      "name": "Torsten Link",
+      "email": "torstenlink@gmx.de"
+    },
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
   "license": "BSD-2-Clause",
   "dependencies": {
     "busboy": "^0.2.13",
     "expression-expander": "^5.0.0",
-    "kronos-interceptor": "^2.3.0",
-    "model-attributes": "^1.7.1"
+    "kronos-interceptor": "^2.4.0",
+    "model-attributes": "^1.7.2"
   },
   "config": {
     "commitizen": {
