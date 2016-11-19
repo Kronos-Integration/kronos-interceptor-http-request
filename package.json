@@ -47,7 +47,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "busboy": "^0.2.13",
-    "expression-expander": "^5.2.3",
+    "expression-expander": "^5.2.4",
     "kronos-interceptor": "^2.4.1",
     "model-attributes": "^2.2.5"
   },
