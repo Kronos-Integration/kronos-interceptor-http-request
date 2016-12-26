@@ -2,13 +2,15 @@
 
 'use strict';
 
-const Interceptor = require('kronos-interceptor').Interceptor,
-	ee = require('expression-expander');
+import {
+	Interceptor
+}
+from 'kronos-interceptor';
 
 /**
  * Simply forwards the koa req as payload
  */
-class KoaRequestInterceptor extends Interceptor {
+export default class KoaRequestInterceptor extends Interceptor {
 	static get name() {
 		return 'koa-request';
 	}
@@ -22,5 +24,3 @@ class KoaRequestInterceptor extends Interceptor {
 		});
 	}
 }
-
-module.exports = KoaRequestInterceptor;

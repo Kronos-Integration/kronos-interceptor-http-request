@@ -11,7 +11,7 @@ const chai = require('chai'),
   llm = require('loglevel-mixin'),
   ksm = require('kronos-service-manager'),
 
-  interceptorFactory = require('../index');
+  interceptorFactory = require('../dist/module');
 
 
 const stepMock = {
