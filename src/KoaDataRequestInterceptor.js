@@ -2,17 +2,28 @@
 
 'use strict';
 
-const Interceptor = require('kronos-interceptor').Interceptor,
-	mat = require('model-attributes'),
-	ee = require('expression-expander');
+import {
+	Interceptor
+}
+from 'kronos-interceptor';
+
+import {
+	mergeAttributes, createAttributes
+}
+from 'model-attributes';
+
+import {
+	createContext
+}
+from 'expression-expander';
 
 /**
  * Forms a data request (no stream) from a koa ctx
  */
-class KoaDataRequestInterceptor extends Interceptor {
+export default class KoaDataRequestInterceptor extends Interceptor {
 
 	static get configurationAttributes() {
-		return mat.mergeAttributes(mat.createAttributes({
+		return mergeAttributes(createAttributes({
 			data: {
 				description: 'additional request data',
 				attributes: {}
@@ -28,7 +39,7 @@ class KoaDataRequestInterceptor extends Interceptor {
 		super(config, endpoint);
 
 		Object.defineProperty(this, 'ec', {
-			value: ee.createContext()
+			value: createContext()
 		});
 	}
 
@@ -42,5 +53,3 @@ class KoaDataRequestInterceptor extends Interceptor {
 		});
 	}
 }
-
-module.exports = KoaDataRequestInterceptor;

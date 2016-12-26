@@ -8,7 +8,7 @@ const chai = require('chai'),
   expect = chai.expect,
   should = chai.should(),
   kti = require('kronos-test-interceptor'),
-  KoaRequestInterceptor = require('../lib/koa-request');
+  KoaRequestInterceptor = require('../dist/module').KoaRequestInterceptor;
 
 const mochaInterceptorTest = kti.mochaInterceptorTest,
   testResponseHandler = kti.testResponseHandler;

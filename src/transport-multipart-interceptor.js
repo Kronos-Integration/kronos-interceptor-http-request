@@ -6,7 +6,10 @@ const stream = require('stream');
 const Busboy = require('busboy');
 const FormData = require('form-data');
 
-const Interceptor = require('kronos-interceptor').Interceptor;
+import {
+	Interceptor
+}
+from 'kronos-interceptor';
 
 /**
  * Copies the fields 'info' and 'hops' into the new message.
@@ -154,5 +157,7 @@ class ReceiveMultipartInterceptor extends Interceptor {
 	}
 }
 
-exports.ReceiveMultipartInterceptor = ReceiveMultipartInterceptor;
-exports.SendMultipartInterceptor = SendMultipartInterceptor;
+export {
+	ReceiveMultipartInterceptor,
+	SendMultipartInterceptor
+};
