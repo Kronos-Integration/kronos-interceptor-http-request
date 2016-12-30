@@ -32,7 +32,7 @@
     "chai": "^3.5.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
-    "kronos-service-manager": "^3.4.20",
+    "kronos-service-manager": "^3.5.0",
     "kronos-test-interceptor": "^2.0.5",
     "semantic-release": "^6.3.5",
     "jsdoc-to-markdown": "^2.0.1",
