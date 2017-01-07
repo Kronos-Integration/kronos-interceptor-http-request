@@ -55,7 +55,7 @@
   "dependencies": {
     "busboy": "^0.2.13",
     "expression-expander": "^5.3.5",
-    "kronos-interceptor": "^2.4.9",
+    "kronos-interceptor": "^2.4.10",
     "model-attributes": "^3.0.3"
   },
   "config": {
