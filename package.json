@@ -13,7 +13,7 @@
     "doc": "./node_modules/.bin/jsdoc lib/*.js",
     "test": "mocha tests/*_test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "docs": "jsdoc2md -l off -t doc/README.hbs -f src/*.js > README.md",
+    "docs": "jsdoc2md -l off -t doc/README.hbs -f src/*.js >README.md",
     "prepublish": "rollup --output=dist/module.js -c -- src/module.js",
     "pretest": "npm run prepublish",
     "posttest": "markdown-doctest"
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-http-request#readme",
   "engines": {
-    "node": ">=6.9.2"
+    "node": ">=6.9.3"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^1.2.0",
