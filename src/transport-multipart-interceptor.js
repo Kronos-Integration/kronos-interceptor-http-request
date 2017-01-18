@@ -1,10 +1,9 @@
 /* jslint node: true, esnext: true */
 'use strict';
 
-const stream = require('stream');
-
-const Busboy = require('busboy');
-const FormData = require('form-data');
+const stream = require('stream'),
+	Busboy = require('busboy'),
+	FormData = require('form-data');
 
 import {
 	Interceptor
@@ -63,7 +62,7 @@ class SendMultipartInterceptor extends Interceptor {
 	receive(ctx) {
 		const request = {
 			info: {
-				request: ctx.request,
+				request: ctx.request
 			},
 			payload: ctx.req
 		};
@@ -74,7 +73,7 @@ class SendMultipartInterceptor extends Interceptor {
 			if (response.status === 200) {
 				ctx.set('content-type', response.headers._headers['content-type'][0]);
 
-				return unpackToMessage(response.body, myHeader);
+				return unpackToMessage(response.body, {});
 			} else {
 				return Promise.reject(`Error in connection. Status = ${response.status}`);
 			}
@@ -114,7 +113,6 @@ function unpackToMessage(request, forwardFunction) {
 				} else {
 					resolve(newMessage);
 				}
-
 			}
 		});
 
