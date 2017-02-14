@@ -31,16 +31,16 @@
     "node": ">=6.9.4"
   },
   "devDependencies": {
+    "chai": "4.0.0-canary.1",
     "cz-conventional-changelog": "^1.2.0",
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0",
-    "kronos-service-manager": "^3.5.7",
-    "kronos-test-interceptor": "^2.1.0",
-    "semantic-release": "^6.3.6",
     "jsdoc-to-markdown": "^3.0.0",
+    "kronos-service-manager": "^3.5.8",
+    "kronos-test-interceptor": "^2.1.0",
     "markdown-doctest": "^0.9.1",
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
     "rollup": "^0.41.4",
-    "nyc": "^10.1.2"
+    "semantic-release": "^6.3.6"
   },
   "contributors": [
     {
@@ -56,7 +56,7 @@
   "dependencies": {
     "busboy": "^0.2.14",
     "expression-expander": "^5.3.8",
-    "kronos-interceptor": "^2.4.11",
+    "kronos-interceptor": "^2.4.12",
     "model-attributes": "^3.0.5"
   },
   "config": {
