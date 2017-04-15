@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-http-request#readme",
   "engines": {
-    "node": ">=7.8.0"
+    "node": ">=7.9.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -72,5 +72,10 @@
       "lcov"
     ],
     "report-dir": "./coverage"
+  },
+  "template": {
+    "repository": {
+      "url": "https://github.com/Kronos-Tools/npm-package-template.git"
+    }
   }
 }
