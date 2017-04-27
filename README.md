@@ -1,5 +1,5 @@
 [![npm](https://img.shields.io/npm/v/kronos-interceptor-http-request.svg)](https://www.npmjs.com/package/kronos-interceptor-http-request)
-[![Greenkeeper](https://badges.greenkeeper.io/Kronos-Integration/kronos-interceptor-http-request)](https://greenkeeper.io/)
+[![Greenkeeper](https://badges.greenkeeper.io/Kronos-Integration/kronos-interceptor-http-request.svg)](https://greenkeeper.io/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/Kronos-Integration/kronos-interceptor-http-request)
 [![Build Status](https://secure.travis-ci.org/Kronos-Integration/kronos-interceptor-http-request.png)](http://travis-ci.org/Kronos-Integration/kronos-interceptor-http-request)
 [![bithound](https://www.bithound.io/github/Kronos-Integration/kronos-interceptor-http-request/badges/score.svg)](https://www.bithound.io/github/Kronos-Integration/kronos-interceptor-http-request)
