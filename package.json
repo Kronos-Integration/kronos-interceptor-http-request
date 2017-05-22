@@ -57,7 +57,7 @@
     "busboy": "^0.2.14",
     "expression-expander": "^5.3.11",
     "kronos-interceptor": "^2.4.16",
-    "model-attributes": "^3.0.9"
+    "model-attributes": "^3.0.10"
   },
   "config": {
     "commitizen": {
