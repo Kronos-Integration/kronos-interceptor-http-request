@@ -31,14 +31,14 @@
     "node": ">=7.10.0"
   },
   "devDependencies": {
-    "chai": "^4.0.0",
+    "chai": "^4.0.1",
     "cz-conventional-changelog": "^2.0.0",
     "jsdoc-to-markdown": "^3.0.0",
     "kronos-service-manager": "^3.5.10",
     "kronos-test-interceptor": "^2.1.0",
     "markdown-doctest": "^0.9.1",
     "mocha": "^3.4.2",
-    "nyc": "^10.3.2",
+    "nyc": "^11.0.1",
     "rollup": "^0.41.6",
     "semantic-release": "^6.3.6"
   },
