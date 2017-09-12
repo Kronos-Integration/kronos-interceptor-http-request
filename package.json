@@ -2,16 +2,13 @@
   "name": "kronos-interceptor-http-request",
   "version": "0.0.0-semantic-release",
   "description": "Interceptor to convert messages into multipart form data and back",
-  "keywords": [
-    "kronos-interceptor-http-request",
-    "kronos-interceptor"
-  ],
+  "keywords": ["kronos-interceptor-http-request", "kronos-interceptor"],
   "main": "dist/module.js",
   "module": "src/module.js",
   "scripts": {
     "cover": "nyc npm test",
     "doc": "./node_modules/.bin/jsdoc lib/*.js",
-    "test": "mocha tests/*_test.js",
+    "test": "mocha tests/*-test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "docs": "jsdoc2md -l off -t doc/README.hbs -f src/*.js >README.md",
     "pretest": "rollup -c",
@@ -59,12 +56,8 @@
     "model-attributes": "^3.0.10"
   },
   "nyc": {
-    "include": [
-      "dist/**/*.js"
-    ],
-    "reporter": [
-      "lcov"
-    ],
+    "include": ["dist/**/*.js"],
+    "reporter": ["lcov"],
     "report-dir": "./coverage"
   },
   "template": {
