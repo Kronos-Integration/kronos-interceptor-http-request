@@ -1,28 +1,23 @@
-/* jslint node: true, esnext: true */
-'use strict';
-
-
 import {
-	SendMultipartInterceptor, ReceiveMultipartInterceptor
-}
-from './transport-multipart-interceptor';
+  SendMultipartInterceptor,
+  ReceiveMultipartInterceptor
+} from './transport-multipart-interceptor';
 
-import KoaRequestInterceptor from './KoaRequestInterceptor';
-import KoaDataRequestInterceptor from './KoaDataRequestInterceptor';
+import KoaRequestInterceptor from './koa-request-interceptor';
+import KoaDataRequestInterceptor from './koa-data-request-interceptor';
 
-function registerWithManager(manager) {
-	return Promise.all([
-		manager.registerInterceptor(SendMultipartInterceptor),
-		manager.registerInterceptor(ReceiveMultipartInterceptor),
-		manager.registerInterceptor(KoaRequestInterceptor),
-		manager.registerInterceptor(KoaDataRequestInterceptor)
-	]);
+export function registerWithManager(manager) {
+  return Promise.all([
+    manager.registerInterceptor(SendMultipartInterceptor),
+    manager.registerInterceptor(ReceiveMultipartInterceptor),
+    manager.registerInterceptor(KoaRequestInterceptor),
+    manager.registerInterceptor(KoaDataRequestInterceptor)
+  ]);
 }
 
 export {
-	registerWithManager,
-	SendMultipartInterceptor,
-	ReceiveMultipartInterceptor,
-	KoaRequestInterceptor,
-	KoaDataRequestInterceptor
+  SendMultipartInterceptor,
+  ReceiveMultipartInterceptor,
+  KoaRequestInterceptor,
+  KoaDataRequestInterceptor
 };
