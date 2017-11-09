@@ -9,7 +9,7 @@
   "main": "dist/module.js",
   "module": "src/module.js",
   "scripts": {
-    "cover": "nyc npm test",
+    "cover": "nyc --temp-directory build/nyc npm test",
     "doc": "./node_modules/.bin/jsdoc lib/*.js",
     "test": "mocha tests/*-test.js",
     "semantic-release": "semantic-release",
