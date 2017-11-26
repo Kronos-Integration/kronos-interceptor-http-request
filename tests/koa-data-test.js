@@ -1,17 +1,6 @@
-/* global describe, it, xit */
-/* jslint node: true, esnext: true */
-
-'use strict';
-
-const chai = require('chai'),
-  assert = chai.assert,
-  expect = chai.expect,
-  should = chai.should(),
-  kti = require('kronos-test-interceptor'),
-  KoaDataRequestInterceptor = require('../dist/module').KoaDataRequestInterceptor;
-
-const mochaInterceptorTest = kti.mochaInterceptorTest,
-  testResponseHandler = kti.testResponseHandler;
+import { interceptorTest, testResponseHandler } from 'kronos-test-interceptor';
+import test from 'ava';
+import { KoaDataRequestInterceptor } from '../src/koa-data-request-interceptor';
 
 const logger = {
   debug(a) {
@@ -19,7 +8,6 @@ const logger = {
   }
 };
 
-/* simple owner with name */
 function dummyEndpoint(name) {
   return {
     get name() {
@@ -35,40 +23,39 @@ function dummyEndpoint(name) {
   };
 }
 
-describe('interceptors', () => {
-  const ep = dummyEndpoint('ep');
-
-  mochaInterceptorTest(KoaDataRequestInterceptor, ep, {
+test(
+  'basic',
+  interceptorTest,
+  KoaDataRequestInterceptor,
+  dummyEndpoint('ep1'),
+  {
     data: {
       a: 'XXX${id}YYY'
     }
-  }, 'koa-data-request', (itc, withConfig) => {
+  },
+  'koa-data-request',
+  async (t, interceptor, withConfig) => {
     if (!withConfig) return;
-
-    describe('json', () => {
-      it('toJSON', () => {
-        assert.deepEqual(itc.toJSON(), {
-          type: 'koa-data-request',
-          data: {
-            a: 'XXX${id}YYY'
-          }
-        });
-      });
+    t.deepEqual(interceptor.toJSON(), {
+      type: 'koa-data-request',
+      data: {
+        a: 'XXX${id}YYY'
+      }
     });
 
-    itc.connected = dummyEndpoint('ep');
-    itc.connected.receive = testResponseHandler;
+    interceptor.connected = dummyEndpoint('ep');
+    interceptor.connected.receive = testResponseHandler;
 
-    let ctx = {
+    const ctx = {
       request: {
         path: '/get/1234'
       }
     };
 
-    it('passing request', () => itc.receive(ctx, {
+    await interceptor.receive(ctx, {
       id: 1234
-    }).then(() => {
-      assert.equal(ctx.body.a, 'XXX1234YYY');
-    }));
-  });
-});
+    });
+
+    t.is(ctx.body.a, 'XXX1234YYY');
+  }
+);

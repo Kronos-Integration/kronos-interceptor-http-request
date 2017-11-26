@@ -31,18 +31,17 @@
     "node": ">=8.9.1"
   },
   "devDependencies": {
+    "ava": "^0.23.0",
+    "babel-preset-env": "^1.6.1",
+    "jsdoc-babel": "^0.3.0",
     "jsdoc-to-markdown": "^3.0.2",
-    "kronos-service-manager": "^3.5.10",
-    "kronos-test-interceptor": "^2.1.0",
+    "kronos-test-interceptor": "^3.1.0",
     "markdown-doctest": "^0.9.1",
     "nyc": "^11.3.0",
     "rollup": "^0.52.0",
-    "semantic-release": "^10.0.1",
-    "jsdoc-babel": "^0.3.0",
-    "ava": "^0.23.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-multi-entry": "^2.0.2",
-    "babel-preset-env": "^1.6.1",
+    "semantic-release": "^10.0.1",
     "xo": "^0.19.0"
   },
   "contributors": [
@@ -64,12 +63,13 @@
   },
   "nyc": {
     "include": [
-      "dist/**/*.js"
+      "build/*-test.js",
+      "src/**/*.js"
     ],
     "reporter": [
       "lcov"
     ],
-    "report-dir": "./coverage"
+    "report-dir": "./build/coverage"
   },
   "template": {
     "repository": {

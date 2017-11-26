@@ -1,13 +1,11 @@
 import { Interceptor } from 'kronos-interceptor';
-
 import { mergeAttributes, createAttributes } from 'model-attributes';
-
 import { createContext } from 'expression-expander';
 
 /**
  * Forms a data request (no stream) from a koa ctx
  */
-export default class KoaDataRequestInterceptor extends Interceptor {
+export class KoaDataRequestInterceptor extends Interceptor {
   static get configurationAttributes() {
     return mergeAttributes(
       createAttributes({

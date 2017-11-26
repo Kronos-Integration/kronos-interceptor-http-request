@@ -1,77 +1,42 @@
-/* global describe, it, xit, before */
-/* jslint node: true, esnext: true */
+import { interceptorTest, testResponseHandler } from 'kronos-test-interceptor';
+import test from 'ava';
+import { SendMultipartInterceptor } from '../src/transport-multipart-interceptor';
 
-'use strict';
-
-const chai = require('chai'),
-  assert = chai.assert,
-  expect = chai.expect,
-  should = chai.should(),
-
-  llm = require('loglevel-mixin'),
-  ksm = require('kronos-service-manager'),
-
-  interceptorFactory = require('../dist/module');
-
-
-const stepMock = {
-  name: 'dummy step name',
-  type: 'dummy step type'
+const logger = {
+  debug(a) {
+    console.log(a);
+  }
 };
-llm.defineLogLevelProperties(stepMock, llm.defaultLogLevels, llm.defaultLogLevels);
 
+function dummyEndpoint(name) {
+  return {
+    get name() {
+      return name;
+    },
+    get path() {
+      return '/get:id';
+    },
+    toString() {
+      return this.name;
+    },
+    step: logger
+  };
+}
 
-const managerPromise = ksm.manager().then(manager =>
-  Promise.all([
-    // ---------------------------
-    // register all the interceptors
-    // ---------------------------
-    interceptorFactory.registerWithManager(manager),
-
-  ]).then(() =>
-    Promise.resolve(manager)
-  ));
-
-
-// !!!!!! This test does no real things. This is no good test !!!!!
-describe('Transport Multipart Interceptor test', function () {
-
-  let manager;
-
-  before(done => {
-    managerPromise.then(m => {
-      manager = m;
-      done();
-    });
-  });
-
-
-  it('Send message', function (done) {
-
-    const endpoint1 = {
-      owner: stepMock,
-      name: 'gumbo 1'
-    };
-    const endpoint2 = {
-      owner: stepMock,
-      name: 'gumbo 2'
-    };
-
-    const sendInterceptor = manager.createInterceptorInstanceFromConfig({
+test.skip(
+  'basic',
+  interceptorTest,
+  SendMultipartInterceptor,
+  dummyEndpoint('ep1'),
+  {},
+  'transport-send-multipart',
+  async (t, interceptor, withConfig) => {
+    t.deepEqual(interceptor.toJSON(), {
       type: 'transport-send-multipart'
-    }, endpoint1);
+    });
 
-
-    const mockEchoReceive = {
-      receive(message) {
-        //console.log(message);
-        done();
-        return Promise.resolve('OK');
-      }
-    };
-
-    // Connect the echo terminator to the interceptor
-    sendInterceptor.connected = mockEchoReceive;
+    interceptor.connected = dummyEndpoint('ep');
+    interceptor.connected.receive = testResponseHandler;
 
     const sendMessage = {
       info: {
@@ -87,8 +52,8 @@ describe('Transport Multipart Interceptor test', function () {
       }
     };
 
-    sendInterceptor.receive(sendMessage);
+    const response = await interceptor.receive(sendMessage);
 
-  });
-
-});
+    t.is(response, {});
+  }
+);
