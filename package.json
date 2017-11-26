@@ -55,7 +55,7 @@
   "dependencies": {
     "busboy": "^0.2.14",
     "expression-expander": "^6.0.1",
-    "kronos-interceptor": "^2.5.0",
+    "kronos-interceptor": "^2.5.1",
     "model-attributes": "^3.0.10"
   },
   "nyc": {
