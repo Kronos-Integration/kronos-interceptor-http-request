@@ -3,8 +3,8 @@ import {
   ReceiveMultipartInterceptor
 } from './transport-multipart-interceptor';
 
-import KoaRequestInterceptor from './koa-request-interceptor';
-import KoaDataRequestInterceptor from './koa-data-request-interceptor';
+import { KoaRequestInterceptor } from './koa-request-interceptor';
+import { KoaDataRequestInterceptor } from './koa-data-request-interceptor';
 
 export function registerWithManager(manager) {
   return Promise.all([

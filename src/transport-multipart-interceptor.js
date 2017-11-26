@@ -1,6 +1,3 @@
-/* jslint node: true, esnext: true */
-'use strict';
-
 const stream = require('stream'),
   Busboy = require('busboy'),
   FormData = require('form-data');
@@ -142,19 +139,17 @@ export class ReceiveMultipartInterceptor extends Interceptor {
     return ReceiveMultipartInterceptor.name;
   }
 
-  receive(ctx) {
+  async receive(ctx) {
     // only parse 'application/json'
     if (
       ctx.method === 'POST' &&
       ctx.req &&
       ctx.request.header['content-type'].startsWith('multipart/form-data')
     ) {
-      return unpackToMessage(ctx.req, this.connected.receive).then(value => {
-        if (value && value.info) {
-          ctx.body = transformMessageToRequestMessage(value);
-        }
-        return Promise.resolve();
-      });
+      const value = await unpackToMessage(ctx.req, this.connected.receive);
+      if (value && value.info) {
+        ctx.body = transformMessageToRequestMessage(value);
+      }
     }
     return this.connected.receive(ctx);
   }

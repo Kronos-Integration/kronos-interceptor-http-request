@@ -1,17 +1,6 @@
-/* global describe, it, xit */
-/* jslint node: true, esnext: true */
-
-'use strict';
-
-const chai = require('chai'),
-  assert = chai.assert,
-  expect = chai.expect,
-  should = chai.should(),
-  kti = require('kronos-test-interceptor'),
-  KoaRequestInterceptor = require('../dist/module').KoaRequestInterceptor;
-
-const mochaInterceptorTest = kti.mochaInterceptorTest,
-  testResponseHandler = kti.testResponseHandler;
+import { interceptorTest, testResponseHandler } from 'kronos-test-interceptor';
+import test from 'ava';
+import { KoaRequestInterceptor } from '../src/koa-request-interceptor';
 
 const logger = {
   debug(a) {
@@ -19,7 +8,6 @@ const logger = {
   }
 };
 
-/* simple owner with name */
 function dummyEndpoint(name) {
   return {
     get name() {
@@ -35,31 +23,29 @@ function dummyEndpoint(name) {
   };
 }
 
-describe('interceptors', () => {
-  const ep = dummyEndpoint('ep');
-
-  mochaInterceptorTest(KoaRequestInterceptor, ep, {}, 'koa-request', (itc, withConfig) => {
-    if (!withConfig) return;
-
-    describe('json', () => {
-      it('toJSON', () => {
-        assert.deepEqual(itc.toJSON(), {
-          type: 'koa-request'
-        });
-      });
+test(
+  'basic',
+  interceptorTest,
+  KoaRequestInterceptor,
+  dummyEndpoint('ep1'),
+  {},
+  'koa-request',
+  async (t, interceptor, withConfig) => {
+    t.deepEqual(interceptor.toJSON(), {
+      type: 'koa-request'
     });
 
-    itc.connected = dummyEndpoint('ep');
-    itc.connected.receive = testResponseHandler;
+    interceptor.connected = dummyEndpoint('ep');
+    interceptor.connected.receive = testResponseHandler;
 
-    let ctx = {
+    const ctx = {
       req: 'request'
     };
 
-    it('passing request', () => itc.receive(ctx).then(() => {
-      assert.deepEqual(ctx.body, {
-        payload: 'request'
-      });
-    }));
-  });
-});
+    await interceptor.receive(ctx);
+
+    t.deepEqual(ctx.body, {
+      payload: 'request'
+    });
+  }
+);
