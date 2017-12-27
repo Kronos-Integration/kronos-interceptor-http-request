@@ -18,6 +18,10 @@ export class KoaDataRequestInterceptor extends Interceptor {
     );
   }
 
+  /**
+   * @return {string} 'koa-data-request'
+   */
+
   static get name() {
     return 'koa-data-request';
   }

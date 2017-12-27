@@ -4,6 +4,9 @@ import { Interceptor } from 'kronos-interceptor';
  * Simply forwards the koa req as payload
  */
 export class KoaRequestInterceptor extends Interceptor {
+  /**
+   * @return {string} 'koa-request'
+   */
   static get name() {
     return 'koa-request';
   }
