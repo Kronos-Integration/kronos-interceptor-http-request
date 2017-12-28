@@ -1,13 +1,24 @@
 {
   "name": "kronos-interceptor-http-request",
   "version": "0.0.0-semantic-release",
+  "main": "dist/module.js",
+  "module": "src/module.js",
   "description": "Interceptor to convert messages into multipart form data and back",
   "keywords": [
     "kronos-interceptor-http-request",
     "kronos-interceptor"
   ],
-  "main": "dist/module.js",
-  "module": "src/module.js",
+  "contributors": [
+    {
+      "name": "Torsten Link",
+      "email": "torstenlink@gmx.de"
+    },
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
+  "license": "BSD-2-Clause",
   "scripts": {
     "cover": "nyc --temp-directory build/nyc ava",
     "doc": "./node_modules/.bin/jsdoc lib/*.js",
@@ -20,16 +31,11 @@
     "prepare": "rollup -c",
     "lint": "documentation lint src/module.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kronos-Integration/kronos-interceptor-http-request.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Kronos-Integration/kronos-interceptor-http-request/issues"
-  },
-  "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-http-request#readme",
-  "engines": {
-    "node": ">=8.9.3"
+  "dependencies": {
+    "busboy": "^0.2.14",
+    "expression-expander": "^6.0.1",
+    "kronos-interceptor": "^2.5.2",
+    "model-attributes": "^3.0.10"
   },
   "devDependencies": {
     "ava": "^0.24.0",
@@ -42,22 +48,27 @@
     "xo": "^0.19.0",
     "documentation": "^5.3.5"
   },
-  "contributors": [
-    {
-      "name": "Torsten Link",
-      "email": "torstenlink@gmx.de"
-    },
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
-  "license": "BSD-2-Clause",
-  "dependencies": {
-    "busboy": "^0.2.14",
-    "expression-expander": "^6.0.1",
-    "kronos-interceptor": "^2.5.2",
-    "model-attributes": "^3.0.10"
+  "engines": {
+    "node": ">=8.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kronos-Integration/kronos-interceptor-http-request.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kronos-Integration/kronos-interceptor-http-request/issues"
+  },
+  "homepage": "https://github.com/Kronos-Integration/kronos-interceptor-http-request#readme",
+  "ava": {
+    "files": [
+      "build/*-test.js"
+    ],
+    "presets": [
+      "env"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
   "nyc": {
     "include": [
@@ -69,23 +80,12 @@
     ],
     "report-dir": "./build/coverage"
   },
+  "xo": {
+    "space": true
+  },
   "template": {
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  },
-  "xo": {
-    "space": true
-  },
-  "ava": {
-    "files": [
-      "build/*-test.js"
-    ],
-    "presets": [
-      "env"
-    ],
-    "require": [
-      "babel-register"
-    ]
   }
 }
