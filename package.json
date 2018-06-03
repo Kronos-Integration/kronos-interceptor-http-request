@@ -1,6 +1,9 @@
 {
   "name": "kronos-interceptor-http-request",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/module.js",
   "module": "src/module.js",
   "description": "Interceptor to convert messages into multipart form data and back",
