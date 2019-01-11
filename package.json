@@ -32,8 +32,8 @@
     "test": "ava"
   },
   "dependencies": {
+    "expression-expander": "^7.0.0",
     "busboy": "^0.3.0",
-    "expression-expander": "^6.2.0",
     "kronos-interceptor": "^2.6.0",
     "model-attributes": "^3.0.10"
   },
