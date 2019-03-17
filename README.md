@@ -7,7 +7,6 @@
 [![Coverage Status](https://coveralls.io/repos/Kronos-Integration/kronos-interceptor-http-request/badge.svg)](https://coveralls.io/r/Kronos-Integration/kronos-interceptor-http-request)
 [![Known Vulnerabilities](https://snyk.io/test/github/Kronos-Integration/kronos-interceptor-http-request/badge.svg)](https://snyk.io/test/github/Kronos-Integration/kronos-interceptor-http-request)
 [![GitHub Issues](https://img.shields.io/github/issues/Kronos-Integration/kronos-interceptor-http-request.svg?style=flat-square)](https://github.com/Kronos-Integration/kronos-interceptor-http-request/issues)
-[![Stories in Ready](https://badge.waffle.io/Kronos-Integration/kronos-interceptor-http-request.svg?label=ready&title=Ready)](http://waffle.io/Kronos-Integration/kronos-interceptor-http-request)
 [![Dependency Status](https://david-dm.org/Kronos-Integration/kronos-interceptor-http-request.svg)](https://david-dm.org/Kronos-Integration/kronos-interceptor-http-request)
 [![devDependency Status](https://david-dm.org/Kronos-Integration/kronos-interceptor-http-request/dev-status.svg)](https://david-dm.org/Kronos-Integration/kronos-interceptor-http-request#info=devDependencies)
 [![docs](http://inch-ci.org/github/Kronos-Integration/kronos-interceptor-http-request.svg?branch=master)](http://inch-ci.org/github/Kronos-Integration/kronos-interceptor-http-request)
