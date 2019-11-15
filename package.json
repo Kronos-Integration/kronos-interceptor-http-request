@@ -35,7 +35,7 @@
     "busboy": "^0.3.1",
     "expression-expander": "^7.0.3",
     "kronos-interceptor": "^2.6.0",
-    "model-attributes": "^4.1.0"
+    "model-attributes": "^4.1.2"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.0.0",
